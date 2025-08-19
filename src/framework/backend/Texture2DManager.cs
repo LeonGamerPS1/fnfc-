@@ -16,7 +16,7 @@ class Texture2DManager
         }
     }
 
-    public static Texture2D GetImage(string ImagePath = "assets/fallback.png")
+    public static Texture2D GetImage(string ImagePath = "assets/default.png")
     {
         if (cache.Exists(ImagePath))
             return cache.Get(ImagePath);

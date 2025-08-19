@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "J1H87X3t9RQ=",
+  "dgSpecHash": "iycRBAu3feE=",
   "success": true,
-  "projectFilePath": "D:\\fnfC#\\fnfC#.csproj",
+  "projectFilePath": "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Wuppe\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512"
+    "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512",
+    "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.8\\microsoft.netcore.app.runtime.win-x64.9.0.8.nupkg.sha512",
+    "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.8.nupkg.sha512",
+    "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.8\\microsoft.aspnetcore.app.runtime.win-x64.9.0.8.nupkg.sha512"
   ],
   "logs": []
 }

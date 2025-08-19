@@ -1,7 +1,6 @@
-﻿using System;
+﻿
 using Raylib_cs;
-
-using System.Numerics;
+using funkin;
 using framework;
 
 
@@ -16,13 +15,17 @@ class EntryPoint
         Raylib.SetTargetFPS(200);
         Raylib.InitAudioDevice();
 
+        StateManager.SwitchState(new PlayState());
+
         while (!Raylib.WindowShouldClose())
         {
+            StateManager.SwitchIfRequested();
+
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);
 
-            
-
+            StateManager.Update(Raylib.GetFrameTime());
+            StateManager.Render();
             Raylib.DrawFPS(10, 10);
             Raylib.EndDrawing();
         }

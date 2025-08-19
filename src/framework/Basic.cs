@@ -14,25 +14,27 @@ namespace framework
         /// </summary>
         public static int Enumerator = 0;
 
+        public float x = 0f;
+        public float y = 0f;
         /// <summary>
         /// Unique ID for this instance.
         /// </summary>
-        public int Id  = Enumerator++;
+        public int Id = Enumerator++;
 
         /// <summary>
         /// Whether the object is active (e.g., for updates).
         /// </summary>
-        public bool Active { get; set; } = false;
+        public bool Active { get; set; } = true;
 
         /// <summary>
         /// Whether the object exists.
         /// </summary>
-        public bool Exists { get; set; } = false;
+        public bool Exists { get; set; } = true;
 
         /// <summary>
         /// Whether the object is alive.
         /// </summary>
-        public bool Alive { get; set; } = false;
+        public bool Alive { get; set; } = true;
 
         /// <summary>
         /// Whether the object is visible.
@@ -42,17 +44,20 @@ namespace framework
         /// <summary>
         /// Cameras used for 2D rendering.
         /// </summary>
-        public List<Camera2D> Cameras2D { get;  set; } = new List<Camera2D>();
+        public List<Camera2D> Cameras2D { get; set; } = null;
 
         /// <summary>
         /// Cameras used for 3D rendering.
         /// </summary>
-        public List<Camera3D> Cameras3D { get;  set; } = new List<Camera3D>();
+        public List<Camera3D> Cameras3D { get; set; } = null;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public Basic() { }
+        public Basic()
+        {
+            
+        }
 
         /// <summary>
         /// Marks the object as dead and non-existent.
@@ -86,17 +91,17 @@ namespace framework
             // 3D cameras first
             foreach (var cam in Cameras3D)
             {
-                Raylib.BeginMode3D(cam);
+               
                 Render3D(); // your custom drawing
-                Raylib.EndMode3D();
+              
             }
 
             // 2D cameras second
             foreach (var cam in Cameras2D)
             {
-                Raylib.BeginMode2D(cam);
+      
                 Render2D(); // your custom drawing
-                Raylib.EndMode2D();
+               
             }
 
             // Optional: fallback render
@@ -142,5 +147,11 @@ namespace framework
         {
             return $"Basic(Id={Id}, Alive={Alive}, Exists={Exists}, Active={Active})";
         }
+
+        public void setPos(float x = 0f, float y = 0f)
+        {
+            this.x = x;
+            this.y = y;
+        } 
     }
 }

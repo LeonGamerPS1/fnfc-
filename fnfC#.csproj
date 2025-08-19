@@ -6,6 +6,10 @@
     <RootNamespace>fnfC_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSelfContained>true</PublishSelfContained>
+    <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+        <AppxPackageDir>$(OutputPath)AppPackages\</AppxPackageDir>
   </PropertyGroup>
 
   <ItemGroup>

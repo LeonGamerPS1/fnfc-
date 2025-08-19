@@ -17,7 +17,7 @@ class PlayState : State
     {
         base.Update(elapsed);
         sprite.angle += 0.1f;
-        sprite.setAntialiasing(false);
+     
  
     }
 }

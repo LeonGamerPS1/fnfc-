@@ -7,7 +7,8 @@ class PlayState : State
         Sprite sprite = new Sprite(200, 200,"assets/images/sustains.png");
     public override void Create()
     {
-
+        sprite.scale.X = 0.7f;
+        sprite.scale.Y = 0.7f;
         Add(sprite);
     }
 
@@ -15,7 +16,8 @@ class PlayState : State
     public override void Update(float elapsed)
     {
         base.Update(elapsed);
-        sustainHeight += 0.2f;
-        sprite.setFrame(sprite.graphic.Width / 8, 0f, sprite.graphic.Width, sustainHeight);
+        sprite.angle += 0.1f;
+        sprite.setAntialiasing(false);
+ 
     }
 }

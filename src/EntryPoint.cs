@@ -12,7 +12,7 @@ class EntryPoint
     public static void Main()
     {
         Raylib.InitWindow(1280, 720, "Night Engine");
-        Raylib.SetTargetFPS(200);
+        Raylib.SetTargetFPS(60);
         Raylib.InitAudioDevice();
 
         StateManager.SwitchState(new PlayState());

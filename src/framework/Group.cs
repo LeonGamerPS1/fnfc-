@@ -66,25 +66,29 @@ namespace framework
         /// <summary>
         /// Adds a new member if not already present.
         /// </summary>
-        public T Add(T b)
+        public T? Add(T b)
         {
             if (b != null && !Members.Contains(b))
+            {
                 Members.Add(b);
 
-            return b;
+                return b; // if b is null, return null. easy
+            }
+            return null;
         }
 
         /// <summary>
         /// Removes a member and destroys it.
         /// </summary>
-        public T Remove(T b)
+        public T? Remove(T b)
         {
             if (b != null && Members.Contains(b))
             {
                 b.Destroy();
                 Members.Remove(b);
+                return b;
             }
-            return b;
+            return null; // if b is null, return null. easy
         }
 
         /// <summary>

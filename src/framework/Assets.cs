@@ -15,11 +15,13 @@ namespace framework
         /// </summary>
         public static string GetPath(string path)
         {
-            string modPath = Path.Combine("mods", CurrentMod, path);
+            if (CurrentMod != null)
+            {
+                string modPath = Path.Combine("mods", CurrentMod, path);
 
-            if (File.Exists(modPath))
-                return modPath;
-
+                if (File.Exists(modPath))
+                    return modPath;
+            }
             return Path.Combine("res", path);
         }
 

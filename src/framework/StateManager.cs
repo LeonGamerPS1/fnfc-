@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using System.Numerics;
 using Raylib_cs;
 
@@ -6,8 +7,8 @@ namespace framework
 {
     public static class StateManager
     {
-        public static State Current { get; private set; } = null;
-        public static State Requested { get; private set; } = null;
+        public static State? Current { get; private set; } = null;
+        public static State? Requested { get; private set; } = null;
 
         public static List<Camera2D> DefaultCameras2D { get; private set; } = new List<Camera2D>();
         public static List<Camera3D> DefaultCameras3D { get; private set; } = new List<Camera3D>();
@@ -28,12 +29,14 @@ namespace framework
                 ResetDefaultCameras();
 
                 Current = Requested;
-                Requested = null;
+
                 Current.Cameras2D = new List<Camera2D>(DefaultCameras2D);
                 Current.Cameras3D = new List<Camera3D>(DefaultCameras3D);
+
                 // Copy default cameras into state
 
 
+                Requested = null; // keep this 
                 Current.Create();
             }
         }
@@ -44,6 +47,7 @@ namespace framework
         public static void SwitchState(State next)
         {
             Requested = next;
+            SwitchIfRequested();
         }
 
         public static void Update(float elapsed)
@@ -58,7 +62,7 @@ namespace framework
 
         public static void ResetDefaultCameras()
         {
-            foreach (var camera in DefaultCameras2D)
+            foreach (var camera in DefaultCameras2D) // explode my ass
             {
                 Camera2D camera2D = camera;
                 DefaultCameras2D.Remove(camera2D);

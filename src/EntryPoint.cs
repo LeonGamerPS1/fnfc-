@@ -19,7 +19,6 @@ class EntryPoint
 
         while (!Raylib.WindowShouldClose())
         {
-            StateManager.SwitchIfRequested();
 
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);

@@ -1,9 +1,0 @@
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\fnfC#.exe
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\assets\.init.h
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\assets\images\sustains.png
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\fnfC#.dll
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\fnfC#.deps.json
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\fnfC#.runtimeconfig.json
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\fnfC#.pdb
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\Raylib-cs.dll
-D:\fnfC#\bin\Release\net9.0\win-x64\publish\raylib.dll

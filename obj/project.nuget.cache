@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gpUi8ex0+iQ=",
+  "dgSpecHash": "YpnC3O/Ur2E=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
+  "projectFilePath": "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512"
   ],

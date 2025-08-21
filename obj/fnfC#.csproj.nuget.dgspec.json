@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj": {}
+    "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj": {
+    "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
+        "projectUniqueName": "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
         "projectName": "fnfC#",
-        "projectPath": "c:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
+        "projectPath": "C:\\Users\\Wolfgang-Engels\\fnfc-\\fnfC#.csproj",
         "packagesPath": "C:\\Users\\Wolfgang-Engels\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Wolfgang-Engels\\fnfc-\\obj\\",
+        "outputPath": "C:\\Users\\Wolfgang-Engels\\fnfc-\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wolfgang-Engels\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -60,6 +60,9 @@ namespace framework
             
         }
 
+
+
+        
         /// <summary>
         /// Marks the object as dead and non-existent.
         /// </summary>
@@ -127,6 +130,7 @@ namespace framework
         /// </summary>
         public virtual void Destroy()
         {
+            
             Exists = false;
             Alive = false;
             Active = false;

@@ -80,12 +80,60 @@ namespace framework
             origin.Y = frame.Height / 2f;
         }
 
+
+
+        public bool IsOnScreen(Camera2D cam)
+        {
+            // Camera viewport rectangle (in world space)
+            float camLeft = cam.Target.X - (Raylib.GetScreenWidth() * 0.5f) / cam.Zoom;
+            float camTop = cam.Target.Y - (Raylib.GetScreenHeight() * 0.5f) / cam.Zoom;
+            float camRight = camLeft + (Raylib.GetScreenWidth() / cam.Zoom);
+            float camBottom = camTop + (Raylib.GetScreenHeight() / cam.Zoom);
+
+            // Sprite destination rectangle (same as in Render2D)
+            float destX = x - offset.X;
+            float destY = y - offset.Y;
+            float destW = frame.Width * scale.X;
+            float destH = frame.Height * scale.Y;
+
+            // Adjust for origin (scaled)
+            float scaledOriginX = origin.X * scale.X;
+            float scaledOriginY = origin.Y * scale.Y;
+
+            float spriteLeft = destX - scaledOriginX;
+            float spriteTop = destY - scaledOriginY;
+            float spriteRight = spriteLeft + destW;
+            float spriteBottom = spriteTop + destH;
+
+            // Overlap check
+            return !(spriteRight < camLeft ||
+                     spriteBottom < camTop ||
+                     spriteLeft > camRight ||
+                     spriteTop > camBottom);
+        }
+
+        public virtual float getWidth()
+        {
+            return frame.Width * scale.X;
+        }
+
+        public virtual float getHeight()
+        {
+            return frame.Height * scale.Y;
+        }
         // Allow changing at runtime
         public void setAntialiasing(bool enable)
         {
             antialiasing = enable;
-         
-                Raylib.SetTextureFilter(graphic, antialiasing ? TextureFilter.Bilinear : TextureFilter.Point);
+
+            Raylib.SetTextureFilter(graphic, antialiasing ? TextureFilter.Bilinear : TextureFilter.Point);
+        }
+
+
+        public override void Destroy()
+        {
+            if (Raylib.IsTextureValid(graphic))
+                Raylib.UnloadTexture(graphic);
         }
     }
 }

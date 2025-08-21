@@ -100,16 +100,19 @@ namespace framework
 
             ForEach(obj =>
             {
+                
                 if (obj.Visible && obj.Alive)
                 {
                     // Share cameras with parent group
                     obj.Cameras2D = this.Cameras2D;
                     obj.Cameras3D = this.Cameras3D;
 
+
                     for (int i = 0; i < obj.Cameras2D.Count; i++)
                     {
+       
                         var cam2d = obj.Cameras2D[i];
-                      
+
                         //cam2d.Zoom = 1.0f; // your desired zoom
                         Raylib.BeginMode2D(cam2d);
                         obj.Render2D();

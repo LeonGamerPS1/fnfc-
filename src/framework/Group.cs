@@ -111,11 +111,11 @@ namespace framework
                     for (int i = 0; i < obj.Cameras2D.Count; i++)
                     {
        
-                        var cam2d = obj.Cameras2D[i];
-
+                        var cam2d = Cameras2D[i];
+                
                         //cam2d.Zoom = 1.0f; // your desired zoom
                         Raylib.BeginMode2D(cam2d);
-                        obj.Render2D();
+                        obj.Render();
                         Raylib.EndMode2D();
 
                         // Write the modified camera back to the list if needed

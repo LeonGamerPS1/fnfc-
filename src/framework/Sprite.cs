@@ -15,9 +15,11 @@ namespace framework
         public float angle = 0f;
 
         public bool antialiasing = false; // Flixel-style toggle
+        public Shader shader;      // Optional shader
 
         Rectangle source = new Rectangle();
         Rectangle dest = new Rectangle();
+        public float alpha = 1;
 
         public Sprite(float x = 0f, float y = 0f, string imgPath = "assets/default.png", bool antialias = true) : base()
         {
@@ -33,6 +35,8 @@ namespace framework
 
         public void loadGraphic(string imgPath)
         {
+            if (Raylib.IsTextureValid(graphic))
+                Raylib.UnloadTexture(graphic);
             graphic = Texture2DManager.GetImage(imgPath);
 
             // Apply smoothing based on antialiasing flag
@@ -42,12 +46,14 @@ namespace framework
             frame = new Rectangle(0f, 0f, graphic.Width, graphic.Height);
 
             centerOrigin();
-            offset = Vector2.Zero;
+           
         }
 
         public override void Render2D()
         {
             // Source rectangle
+           color.A = (byte)(255 * alpha);
+
             source.X = frame.X;
             source.Y = frame.Y;
             source.Width = frame.Width;
@@ -62,7 +68,14 @@ namespace framework
             // Scaled origin
             Vector2 scaledOrigin = new Vector2(origin.X * scale.X, origin.Y * scale.Y);
 
+            if (Raylib.IsShaderValid(shader))
+                Raylib.BeginShaderMode(shader);
+
+
             Raylib.DrawTexturePro(graphic, source, dest, scaledOrigin, angle, color);
+            if (Raylib.IsShaderValid(shader))
+                Raylib.EndShaderMode();
+
         }
 
         public void setFrame(float x, float y, float width, float height)
@@ -80,23 +93,18 @@ namespace framework
             origin.Y = frame.Height / 2f;
         }
 
-
-
         public bool IsOnScreen(Camera2D cam)
         {
-            // Camera viewport rectangle (in world space)
             float camLeft = cam.Target.X - (Raylib.GetScreenWidth() * 0.5f) / cam.Zoom;
             float camTop = cam.Target.Y - (Raylib.GetScreenHeight() * 0.5f) / cam.Zoom;
             float camRight = camLeft + (Raylib.GetScreenWidth() / cam.Zoom);
             float camBottom = camTop + (Raylib.GetScreenHeight() / cam.Zoom);
 
-            // Sprite destination rectangle (same as in Render2D)
             float destX = x - offset.X;
             float destY = y - offset.Y;
             float destW = frame.Width * scale.X;
             float destH = frame.Height * scale.Y;
 
-            // Adjust for origin (scaled)
             float scaledOriginX = origin.X * scale.X;
             float scaledOriginY = origin.Y * scale.Y;
 
@@ -105,30 +113,28 @@ namespace framework
             float spriteRight = spriteLeft + destW;
             float spriteBottom = spriteTop + destH;
 
-            // Overlap check
             return !(spriteRight < camLeft ||
                      spriteBottom < camTop ||
                      spriteLeft > camRight ||
                      spriteTop > camBottom);
         }
 
-        public virtual float getWidth()
-        {
-            return frame.Width * scale.X;
-        }
+        public virtual float getWidth() => frame.Width * scale.X;
+        public virtual float getHeight() => frame.Height * scale.Y;
 
-        public virtual float getHeight()
-        {
-            return frame.Height * scale.Y;
-        }
-        // Allow changing at runtime
         public void setAntialiasing(bool enable)
         {
             antialiasing = enable;
-
             Raylib.SetTextureFilter(graphic, antialiasing ? TextureFilter.Bilinear : TextureFilter.Point);
         }
 
+        /// <summary>
+        /// Assign a shader to the sprite. Pass null to remove it.
+        /// </summary>
+        public void setShader(Shader s)
+        {
+            shader = s;
+        }
 
         public override void Destroy()
         {

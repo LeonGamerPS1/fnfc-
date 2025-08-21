@@ -57,12 +57,12 @@ namespace framework
         /// </summary>
         public Basic()
         {
-            
+
         }
 
 
 
-        
+
         /// <summary>
         /// Marks the object as dead and non-existent.
         /// </summary>
@@ -92,28 +92,9 @@ namespace framework
         /// </summary>
         public virtual void Render()
         {
-            // 3D cameras first
-            foreach (var cam in Cameras3D)
-            {
-               
-                Render3D(); // your custom drawing
-              
-            }
-
-            // 2D cameras second
-            foreach (var cam in Cameras2D)
-            {
-      
-                Render2D(); // your custom drawing
-               
-            }
-
-            // Optional: fallback render
-            if (Cameras2D.Count == 0 && Cameras3D.Count == 0)
-            {
-                Render2D(); // Default rendering if no camera is used
-            }
+            Render2D(); // your custom drawing
         }
+
 
         /// <summary>
         /// Override for custom 2D rendering.
@@ -130,7 +111,7 @@ namespace framework
         /// </summary>
         public virtual void Destroy()
         {
-            
+
             Exists = false;
             Alive = false;
             Active = false;
@@ -157,6 +138,6 @@ namespace framework
         {
             this.x = x;
             this.y = y;
-        } 
+        }
     }
 }

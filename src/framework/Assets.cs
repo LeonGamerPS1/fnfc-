@@ -8,21 +8,21 @@ namespace framework
         /// If not "null", paths start with mods/modname/... 
         /// Otherwise, they start with res/...
         /// </summary>
-        public static string? CurrentMod { get; set; } = null;
+        public static string? CurrentMod { get; set; } = "fnf";
 
         /// <summary>
         /// Resolve path depending on whether mod exists.
         /// </summary>
         public static string GetPath(string path)
         {
-            if (CurrentMod != null)
-            {
-                string modPath = Path.Combine("mods", CurrentMod, path);
+            path.Replace("/", "\\");
 
+            string modPath = "mods/" + CurrentMod + "/" + path;
+            
                 if (File.Exists(modPath))
                     return modPath;
-            }
-            return Path.Combine("res", path);
+            
+            return Path.Combine("assets", path);
         }
 
         public static string Font(string s)

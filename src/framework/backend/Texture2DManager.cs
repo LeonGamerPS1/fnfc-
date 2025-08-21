@@ -21,7 +21,8 @@ class Texture2DManager
 
             return texture;
         }
-        return GetImage("assets/fallback.png");
+        Console.WriteLine(ImagePath + " not found");
+        return GetImage("assets/default.png");
 
     }
 

@@ -11,8 +11,9 @@ class EntryPoint
     [STAThread]
     public static void Main()
     {
+        Raylib.SetConfigFlags(ConfigFlags.ResizableWindow);
         Raylib.InitWindow(1280, 720, "Night Engine");
-        Raylib.SetTargetFPS(99999);
+  
         Raylib.InitAudioDevice();
 
         StateManager.SwitchState(new PlayState());
@@ -21,7 +22,7 @@ class EntryPoint
         {
 
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.White);
+            Raylib.ClearBackground(Color.Black);
 
             StateManager.Update(Raylib.GetFrameTime());
             StateManager.Render();

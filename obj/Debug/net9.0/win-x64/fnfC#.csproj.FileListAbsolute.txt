@@ -334,3 +334,6 @@ C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\images\notes\defa
 C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\images\notes\default\note.png
 C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\images\notes\default\press.png
 C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\images\notes\default\static.png
+C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\shaders\rgb\shader.fs
+C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\assets\shaders\rgb\shader.vs
+C:\Users\Wolfgang-Engels\fnfc-\bin\Debug\net9.0\win-x64\Newtonsoft.Json.dll
